@@ -1,0 +1,21 @@
+branches:
+  master:
+    mode: ContinuousDeployment
+    increment: Patch
+    regex: ^master$|^main$
+    prevent-increment-of-merged-branch-version: true
+    track-merge-target: false
+    tracks-release-branches: true
+    is-release-branch: true
+    tag: mitigacloud-monitoring-ng
+  feature:
+    mode: ContinuousDeployment
+    increment: None
+    regex: ^feat.*[/-]|^fix.*[/-]|^patch.*[/-]|^snyk.*[/-]
+    prevent-increment-of-merged-branch-version: false
+    track-merge-target: false
+    tracks-release-branches: false
+    is-release-branch: false
+tag-prefix: mitigacloud-monitoring-ng/
+next-version: 2.0.0
+continuous-delivery-fallback-tag: ""

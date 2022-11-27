@@ -1,0 +1,55 @@
+{
+    "name": "@mitigacloud/logging",
+    "version": "2.0.1",
+    "description": "",
+    "keywords": [],
+    "homepage": "https://github.com/mitigacloud/services",
+    "bugs": {
+        "url": "https://github.com/mitigacloud/services/issues"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git@github.com:mitigacloud/services.git"
+    },
+    "license": "ISC",
+    "main": "dist/index.js",
+    "types": "dist/index.d.ts",
+    "files": [
+        "dist/**/*",
+        "index.ts",
+        "src/**",
+        "bin/**",
+        "test/**"
+    ],
+    "scripts": {
+        "build": "rm -rf dist;tsc --build",
+        "coverage": "jest --coverage --runInBand",
+        "lint": "eslint '{src/**/*.ts,index.ts,test/**/*.ts}' --fix --report-unused-disable-directives",
+        "miti-fix": "miti-dev ts fix",
+        "prepare": "yarn build",
+        "start": "ts-node index.ts",
+        "test": "jest --ci --reporters=default --reporters=jest-junit --maxWorkers=4",
+        "watch": "tsc --watch"
+    },
+    "dependencies": {
+        "debug": "^4.3.4",
+        "winston": "^3.7.2"
+    },
+    "devDependencies": {
+        "@mitigacloud/eslint-config-mitiga": "latest",
+        "@mitigacloud/miti-dev": "latest",
+        "@types/debug": "^4.1.7",
+        "@types/node": "^16.0.0",
+        "jest": "^28.1.3",
+        "jest-junit": "^14.0.0",
+        "ts-jest": "^28.0.7",
+        "ts-node": "^10.9.1",
+        "typescript": "^4.7.4"
+    },
+    "engines": {
+        "node": "^16.0.0"
+    },
+    "publishConfig": {
+        "registry": "https://npm.pkg.github.com"
+    }
+}

@@ -1,0 +1,61 @@
+{
+	"name": "@mitigacloud/monitoring-ng",
+	"version": "2.0.1",
+	"description": "",
+	"keywords": [],
+	"homepage": "https://github.com/mitigacloud/services",
+	"bugs": {
+		"url": "https://github.com/mitigacloud/services/issues"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git@github.com:mitigacloud/services.git"
+	},
+	"license": "ISC",
+	"author": "Itay Witzer",
+	"main": "dist/index.js",
+	"types": "dist/index.d.ts",
+	"directories": {
+		"test": "tests"
+	},
+	"files": [
+		"dist/**/*",
+		"index.ts",
+		"src/**",
+		"test/**"
+	],
+	"scripts": {
+		"build": "rm -rf ./dist; tsc --build",
+		"coverage": "jest --coverage --runInBand",
+		"lint": "eslint '{src/**/*.ts,index.ts,test/**/*.ts}' --fix --report-unused-disable-directives",
+		"miti-fix": "miti-dev ts fix",
+		"prepare": "yarn build",
+		"start": "ts-node index.ts",
+		"test": "jest --runInBand",
+		"watch": "tsc --watch"
+	},
+	"dependencies": {
+		"@mitigacloud/logging": "^2.0.0",
+		"fastify": "^3.29.0",
+		"lodash": "^4.17.21",
+		"prom-client": "^14.1.0"
+	},
+	"devDependencies": {
+		"@mitigacloud/eslint-config-mitiga": "latest",
+		"@mitigacloud/miti-dev": "latest",
+		"@types/jest": "^27.0.3",
+		"@types/node": "^16.11.12",
+		"jest": "^27.4.4",
+		"jest-junit": "^13.0.0",
+		"ts-jest": "^27.1.1",
+		"ts-node": "^10.4.0",
+		"typescript": "^4.5.2"
+	},
+	"engines": {
+		"node": "^16.0.0"
+	},
+	"publishConfig": {
+		"registry": "https://npm.pkg.github.com"
+	},
+	"gitHead": "1ae1a9242b9feb9af79d99ae316d41a1c4d5b6f6"
+}
