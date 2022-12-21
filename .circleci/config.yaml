@@ -1,0 +1,14 @@
+version: 2.1
+setup: true
+orbs:
+  path-filtering: circleci/path-filtering@0.0.2 # Allows me to run path-based flows
+workflows:
+  setup:
+    jobs:
+      - path-filtering/filter:
+          base-revision: main
+          mapping: >-
+            packages/common/logging/.* mitigacloud-logging-modified true
+            packages/common/monitoring/.* mitigacloud-monitoring-ng-modified true
+            packages/secret/.* mitigacloud-secret-modified true
+          config-path: .circleci/workflow.yml # This is triggered once all setup actions are over.
